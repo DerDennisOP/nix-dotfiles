@@ -106,7 +106,7 @@ in {
     description = "Dennis Wuitz";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
+    #  firefox
     #  thunderbird
     ];
   };
@@ -143,7 +143,7 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    minecraft
+    polymc
     geogebra6
     gjs
     gnome.gnome-tweaks
@@ -175,6 +175,7 @@ in {
     discord
     gimp
     #github-desktop
+    nextcloud-client
     python310
     python310Packages.pip
     steam
@@ -193,6 +194,10 @@ in {
     blender
     anydesk
     jre8
+    zlib
+    opencv4
+    python310Packages.numpy
+    jp2a
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
