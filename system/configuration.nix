@@ -134,7 +134,13 @@ in {
 
   programs.zsh.enable = true;
 
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "de_DE.UTF-8/UTF-8"
+  ];
+
   nixpkgs.config.permittedInsecurePackages = [
+    "electron-12.2.3"
     "electron-14.2.9"
   ];
 
@@ -198,6 +204,9 @@ in {
     opencv4
     python310Packages.numpy
     jp2a
+    linux-wifi-hotspot
+    unzip
+    etcher
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
