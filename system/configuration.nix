@@ -105,6 +105,7 @@ in {
     isNormalUser = true;
     description = "Dennis Wuitz";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  firefox
     #  thunderbird
@@ -132,7 +133,18 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      plugins = [ "git" "sudo" "docker" "kubectl" "zsh-autosuggestions" "zsh-syntax-highlighting" "async" "colorize" "direnv" "mysql" "recall" "" ];
+      theme = "agnoster";
+    };
+    shellAliases = {
+      l = "ls -l";
+      update = "sudo nixos-rebuild switch --flake ~/dotfiles/ --recreate-lock-file";
+    };
+  };
 
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
@@ -144,12 +156,10 @@ in {
     "electron-14.2.9"
   ];
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    polymc
     geogebra6
     gjs
     gnome.gnome-tweaks
@@ -200,6 +210,7 @@ in {
     blender
     anydesk
     jre8
+    libgccjit
     zlib
     opencv4
     python310Packages.numpy
@@ -207,6 +218,7 @@ in {
     linux-wifi-hotspot
     unzip
     etcher
+    darktable
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
