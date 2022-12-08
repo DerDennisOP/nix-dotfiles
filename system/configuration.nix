@@ -135,8 +135,11 @@ in {
 
   programs.zsh = {
     enable = true;
-    autosuggestions.enable = true;
-    autosuggestions.async = true;
+    autosuggestions = {
+      enable = true;
+      strategy = [ "completion" ];
+      async = true;
+    };
     syntaxHighlighting.enable = true;
     zsh-autoenv.enable = true;
     enableCompletion = true;
@@ -166,8 +169,6 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #zsh-history
-    #zsh-autocomplete
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     geogebra6
     gjs
@@ -275,7 +276,7 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
