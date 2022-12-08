@@ -135,14 +135,21 @@ in {
 
   programs.zsh = {
     enable = true;
+    autosuggestions.enable = true;
+    autosuggestions.async = true;
+    syntaxHighlighting.enable = true;
+    zsh-autoenv.enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "kubectl" "zsh-autosuggestions" "zsh-syntax-highlighting" "async" "colorize" "direnv" "mysql" "recall" "" ];
+      plugins = [ "git" "sudo" "docker" "kubectl" "history" "colorize" "direnv"];
       theme = "agnoster";
     };
     shellAliases = {
-      l = "ls -l";
+      l = "ls -l -a";
       update = "sudo nixos-rebuild switch --flake ~/dotfiles/ --recreate-lock-file";
+      garbage = "nix-collect-garbage -d";
     };
   };
 
@@ -159,6 +166,8 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #zsh-history
+    #zsh-autocomplete
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     geogebra6
     gjs
@@ -212,6 +221,7 @@ in {
     jre8
     libgccjit
     zlib
+    pulseaudio
     opencv4
     python310Packages.numpy
     jp2a
