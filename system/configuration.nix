@@ -169,6 +169,9 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    opencascade
+    htop
+    wpsoffice
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     geogebra6
     gjs
@@ -198,6 +201,7 @@ in {
     git
     nodejs
     vscode
+    termius
     discord
     gimp
     #github-desktop
