@@ -152,7 +152,7 @@ in {
     shellAliases = {
       l = "ls -l -a";
       update = "sudo nixos-rebuild switch --flake ~/dotfiles/ --recreate-lock-file";
-      garbage = "nix-collect-garbage -d";
+      garbage = "sudo nix-collect-garbage -d";
     };
   };
 
@@ -201,7 +201,7 @@ in {
     git
     nodejs
     vscode
-    termius
+    vlc
     discord
     gimp
     #github-desktop
