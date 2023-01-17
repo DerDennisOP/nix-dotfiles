@@ -175,9 +175,11 @@ in {
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     geogebra6
     gjs
+    gnome-network-displays
     gnome.gnome-tweaks
     gnome.dconf-editor
     gnome-randr
+    remmina
     zsh-nix-shell
     cowsay
     perl
