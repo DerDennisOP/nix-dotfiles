@@ -133,7 +133,8 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh = {
+  programs = {
+  zsh = {
     enable = true;
     autosuggestions = {
       enable = true;
@@ -145,14 +146,37 @@ in {
     enableCompletion = true;
     enableBashCompletion = true;
     ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "sudo" "docker" "kubectl" "history" "colorize" "direnv"];
-      theme = "agnoster";
+        enable = true;
+        plugins = [ "git" "sudo" "docker" "kubectl" "history" "colorize" "direnv"];
+        theme = "agnoster";
+      };
+      shellAliases = {
+        l = "ls -l -a";
+        update = "sudo nixos-rebuild switch --flake ~/dotfiles/ --recreate-lock-file";
+        garbage = "sudo nix-collect-garbage -d";
+      };
     };
-    shellAliases = {
-      l = "ls -l -a";
-      update = "sudo nixos-rebuild switch --flake ~/dotfiles/ --recreate-lock-file";
-      garbage = "sudo nix-collect-garbage -d";
+
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+    zlib
+    zstd
+    stdenv.cc.cc
+    curl
+    openssl
+    attr
+    libssh
+    bzip2
+    libxml2
+    acl
+    libsodium
+    util-linux
+    xz
+    systemd
+
+glib
+    libglvnd ];
     };
   };
 
