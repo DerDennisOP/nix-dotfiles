@@ -24,6 +24,7 @@ in {
   imports =
     [
       ./hardware-configuration.nix
+      ./systemprograms.nix
     ];
 
   # Bootloader.
@@ -134,18 +135,18 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-  zsh = {
-    enable = true;
-    autosuggestions = {
+    zsh = {
       enable = true;
-      strategy = [ "completion" ];
-      async = true;
-    };
-    syntaxHighlighting.enable = true;
-    zsh-autoenv.enable = true;
-    enableCompletion = true;
-    enableBashCompletion = true;
-    ohMyZsh = {
+      autosuggestions = {
+        enable = true;
+        strategy = [ "completion" ];
+        async = true;
+      };
+      syntaxHighlighting.enable = true;
+      zsh-autoenv.enable = true;
+      enableCompletion = true;
+      enableBashCompletion = true;
+      ohMyZsh = {
         enable = true;
         plugins = [ "git" "sudo" "docker" "kubectl" "history" "colorize" "direnv"];
         theme = "agnoster";
@@ -160,23 +161,23 @@ in {
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-    zlib
-    zstd
-    stdenv.cc.cc
-    curl
-    openssl
-    attr
-    libssh
-    bzip2
-    libxml2
-    acl
-    libsodium
-    util-linux
-    xz
-    systemd
-
-glib
-    libglvnd ];
+        zlib
+        zstd
+        stdenv.cc.cc
+        curl
+        openssl
+        attr
+        libssh
+        bzip2
+        libxml2
+        acl
+        libsodium
+        util-linux
+        xz
+        systemd
+        glib
+        libglvnd
+      ];
     };
   };
 
@@ -188,86 +189,6 @@ glib
   nixpkgs.config.permittedInsecurePackages = [
     "electron-12.2.3"
     "electron-14.2.9"
-  ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    opencl-headers
-    ocl-icd
-    rocm-opencl-runtime
-    rocminfo
-    rocm-opencl-icd
-    opencascade
-    htop
-    wpsoffice
-    audacity
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    geogebra6
-    gjs
-    gnome-network-displays
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    gnome-randr
-    remmina
-    zsh-nix-shell
-    thunderbird
-    cowsay
-    perl
-    winetricks
-    samba
-    hugo
-    wine
-    wineWowPackages.waylandFull
-    libfprint
-    iio-sensor-proxy
-    futhark
-    mesa
-    libGL
-    meson
-    sass
-    ntfs3g
-    ninja
-    xorg.libX11
-    libtiff
-    gcc
-    gpp
-    gnome-themes-extra
-    git
-    nodejs
-    vscode
-    vlc
-    discord
-    gimp
-    #github-desktop
-    nextcloud-client
-    python310
-    python310Packages.pip
-    lorien
-    gnome.gnome-themes-extra
-    google-chrome
-    nodePackages.npm
-    nodePackages.ts-node
-    wget
-    gnumake
-    cmake
-    usbutils
-    usbtop
-    usb-reset
-    nmap
-    blender
-    anydesk
-    jre8
-    libgccjit
-    zlib
-    pulseaudio
-    opencv4
-    python310Packages.numpy
-    jp2a
-    linux-wifi-hotspot
-    unzip
-    etcher
-    darktable
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
