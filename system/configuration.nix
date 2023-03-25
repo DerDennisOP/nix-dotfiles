@@ -1,4 +1,4 @@
-# wiki/wiki/Main_Page# Edit this configuration file to define what should be installed on
+## wiki/wiki/Main_Page# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -169,9 +169,15 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    opencl-headers
+    ocl-icd
+    rocm-opencl-runtime
+    rocminfo
+    rocm-opencl-icd
     opencascade
     htop
     wpsoffice
+    audacity
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     geogebra6
     gjs
@@ -181,22 +187,25 @@ in {
     gnome-randr
     remmina
     zsh-nix-shell
+    thunderbird
     cowsay
     perl
     winetricks
     samba
+    hugo
     wine
     wineWowPackages.waylandFull
     libfprint
     iio-sensor-proxy
+    futhark
     mesa
     libGL
     meson
     sass
     ntfs3g
     ninja
-    xlibsWrapper
     xorg.libX11
+    libtiff
     gcc
     gpp
     gnome-themes-extra
@@ -210,7 +219,6 @@ in {
     nextcloud-client
     python310
     python310Packages.pip
-    steam
     lorien
     gnome.gnome-themes-extra
     google-chrome
