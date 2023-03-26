@@ -48,58 +48,21 @@ in {
   # Select internationalisation properties.
   i18n.defaultLocale = "de_DE.utf8";
 
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = true;
-
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
-    #services.xserver.windowManager.i3.enable = true;
-#    windowManager.xmonad = {
-#        enable = true;
-#        enableContribAndExtras = true;
-#      };
-#    windowManager.default = "xmonad";
-  };
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
-  };
-
   # enable Font folder
   fonts.fontDir.enable = true;
 
   # Configure console keymap
   console.keyMap = "de";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  sound.mediaKeys.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  sound = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    mediaKeys.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-  hardware.sensor.iio.enable = true;
+  hardware = {
+    pulseaudio.enable = false;
+    sensor.iio.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dennis = {
@@ -113,23 +76,52 @@ in {
     ];
   };
 
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "dennis";
+  services = {
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
 
-  services.fprintd.enable = true;
+    # Enable automatic login for the user.
+    xserver = {
+      enable = true;
 
-  security.pam.services.login.fprintAuth = true;
-  security.pam.services.xscreensaver.fprintAuth = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
 
-  security.sudo.wheelNeedsPassword = false;
+      # Configure keymap in X11
+      layout = "de";
+      xkbVariant = "";
 
-  # Custom udev rules
-  services.udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";
+      displayManager.autoLogin = {
+        enable = true;
+        user = "dennis";
+      };
+    };
+
+    fprintd.enable = true;
+
+    # Custom udev rules
+    udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";
+  };
+
+  security = {
+    pam.services = {
+      login.fprintAuth = true;
+      xscreensaver.fprintAuth = true;
+    };
+    rtkit.enable = true;
+    sudo.wheelNeedsPassword = false;
+  };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -153,8 +145,11 @@ in {
       };
       shellAliases = {
         l = "ls -l -a";
-        update = "sudo nixos-rebuild switch --flake ~/dotfiles/ --recreate-lock-file";
+        update = "sudo nixos-rebuild switch --flake ~/dotfiles/";
         garbage = "sudo nix-collect-garbage -d";
+        nixedit = "nano ~/dotfiles/system/configuration.nix";
+        nixeditp = "nano ~/dotfiles/system/systemprograms.nix";
+	pipi = "pip install --user";
       };
     };
 

@@ -2,6 +2,7 @@
 {
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    nixpkgs-fmt
     go
     opencl-headers
     ocl-icd
@@ -59,6 +60,7 @@
     nodePackages.npm
     nodePackages.ts-node
     wget
+    portaudio
     gnumake
     cmake
     usbutils
