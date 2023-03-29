@@ -96,14 +96,14 @@ in {
     xserver = {
       enable = true;
 
-      videoDrivers = [ "amdgpu" ];
+      #videoDrivers = [ "amdgpu" ];
 
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
 
       # Configure keymap in X11
       layout = "de";
-      xkbVariant = "";
+      #xkbVariant = "";
     };
 
     fprintd.enable = true;
@@ -113,19 +113,19 @@ in {
   };
 
   security = {
-    pam.services = {
-      login.fprintAuth = true;
-      xscreensaver.fprintAuth = true;
-    };
-    rtkit.enable = true;
+  #  pam.services = {
+  #    login.fprintAuth = true;
+  #    xscreensaver.fprintAuth = true;
+  #  };
+  #  rtkit.enable = true;
     sudo.wheelNeedsPassword = false;
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  systemd.services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-  };
+  #systemd.services = {
+  #  "getty@tty1".enable = false;
+  #  "autovt@tty1".enable = false;
+  #};
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -159,27 +159,27 @@ in {
       };
     };
 
-    nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        zlib
-        zstd
-        stdenv.cc.cc
-        curl
-        openssl
-        attr
-        libssh
-        bzip2
-        libxml2
-        acl
-        libsodium
-        util-linux
-        xz
-        systemd
-        glib
-        libglvnd
-      ];
-    };
+    #nix-ld = {
+    #  enable = true;
+    #  libraries = with pkgs; [
+    #    zlib
+    #    zstd
+    #    stdenv.cc.cc
+    #    curl
+    #    openssl
+    #    attr
+    #    libssh
+    #    bzip2
+    #    libxml2
+    #    acl
+    #    libsodium
+    #    util-linux
+    #    xz
+    #    systemd
+    #    glib
+    #    libglvnd
+    #  ];
+    #};
   };
 
   i18n.supportedLocales = [
@@ -194,16 +194,16 @@ in {
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
-    gnome-tour
+    #gnome-tour
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
-    gnome-terminal
+    #gnome-terminal
     gedit # text editor
     epiphany # web browser
     geary # email reader
     evince # document viewer
-    gnome-characters
+    #gnome-characters
     totem # video player
     tali # poker game
     iagno # go game
