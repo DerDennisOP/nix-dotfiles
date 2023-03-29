@@ -1,84 +1,87 @@
 { pkgs, ... }:
 {
-  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    nixpkgs-fmt
-    go
-    opencl-headers
-    ocl-icd
-    rocm-opencl-runtime
-    rocminfo
-    rocm-opencl-icd
-    opencascade
-    htop
-    postgresql
-    wpsoffice
-    audacity
-    neovim
-    geogebra6
-    gjs
-    gnome-network-displays
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    gnome-randr
-    remmina
-    zsh-nix-shell
-    thunderbird
+    # CLI programs
     cowsay
-    perl
-    winetricks
-    samba
-    wine
-    wineWowPackages.waylandFull
-    libfprint
-    iio-sensor-proxy
-    futhark
-    mesa
-    libGL
-    meson
-    sass
-    ntfs3g
-    ninja
-    xorg.libX11
-    libtiff
+    direnv
+    htop
+    jp2a
+    nixpkgs-fmt
+    nmap
+    tree
+    unzip
+    wget
+    zsh-nix-shell
+    # Development tools
+    cmake
+    etcher
     gcc
-    gpp
-    gnome-themes-extra
     git
-    nodejs
+    gnumake
+    gpp
+    jre8
+    neovim
+    postgresql
     vscode
-    vlc
-    discord
-    gimp
-    #github-desktop
-    nextcloud-client
-    python310
-    python310Packages.pip
-    lorien
-    gnome.gnome-themes-extra
-    google-chrome
+    # Languages
+    futhark
+    go
+    nodejs
     nodePackages.npm
     nodePackages.ts-node
-    wget
-    portaudio
-    gnumake
-    cmake
-    usbutils
-    usbtop
-    usb-reset
-    nmap
-    blender
+    perl
+    # Desktop programs
     anydesk
-    jre8
-    libgccjit
-    zlib
-    pulseaudio
-    opencv4
-    python310Packages.numpy
-    jp2a
-    linux-wifi-hotspot
-    unzip
-    etcher
+    audacity
+    blender
     darktable
+    discord
+    geogebra6
+    gimp
+    google-chrome
+    nextcloud-client
+    thunderbird
+    vlc
+    wpsoffice
+    # Python packages
+    python310
+    python310Packages.numpy
+    python310Packages.pip
+    # Libraries
+    libgccjit
+    libtiff
+    opencl-headers
+    opencascade
+    opencv4
+    portaudio
+    pulseaudio
+    xorg.libX11
+    zlib
+    # Drivers
+    iio-sensor-proxy
+    libfprint
+    libGL
+    mesa
+    ntfs3g
+    ocl-icd
+    rocminfo
+    rocm-opencl-runtime
+    rocm-opencl-icd
+    samba
+    usbtop
+    usbutils
+    usb-reset
+    # Desktop environment
+    gjs
+    gnome-network-displays
+    gnome-themes-extra
+    gnome-randr
+    gnome.gnome-themes-extra
+    gnome.gnome-tweaks
+    gnome.dconf-editor
+    # Windows
+    winetricks
+    wine
+    wineWowPackages.waylandFull
   ];
 }

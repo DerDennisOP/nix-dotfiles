@@ -28,9 +28,16 @@ in {
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_5_15;
+    loader = {
+      systemd-boot.enable = true;
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+  };
 
   networking.hostName = "DennisLaptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -95,11 +102,6 @@ in {
       # Configure keymap in X11
       layout = "de";
       xkbVariant = "";
-
-      displayManager.autoLogin = {
-        enable = true;
-        user = "dennis";
-      };
     };
 
     fprintd.enable = true;
@@ -147,9 +149,11 @@ in {
         l = "ls -l -a";
         update = "sudo nixos-rebuild switch --flake ~/dotfiles/";
         garbage = "sudo nix-collect-garbage -d";
-        nixedit = "nano ~/dotfiles/system/configuration.nix";
-        nixeditp = "nano ~/dotfiles/system/systemprograms.nix";
+        nixedit = "nvim ~/dotfiles/system/configuration.nix";
+        nixeditp = "nvim ~/dotfiles/system/systemprograms.nix";
 	pipi = "pip install --user";
+	v = "nvim";
+	countpy = "find . -name '*.py' | xargs  wc -l";
       };
     };
 
