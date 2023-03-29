@@ -4,6 +4,7 @@
     # CLI programs
     cowsay
     direnv
+    fd
     htop
     jp2a
     nixpkgs-fmt
