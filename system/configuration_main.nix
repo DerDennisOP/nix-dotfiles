@@ -7,7 +7,7 @@ let
 in {
   imports =
     [
-      ./hardware-configuration.nix
+      ./hardware-configuration_main.nix
       ./systemprograms.nix
     ];
 

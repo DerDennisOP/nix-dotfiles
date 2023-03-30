@@ -14,6 +14,7 @@
     wget
     ventoy-bin
     zsh-nix-shell
+
     # Development tools
     cmake
     etcher
@@ -22,9 +23,11 @@
     gnumake
     gpp
     jre8
+    krita
     neovim
     postgresql
     vscode
+
     # Languages
     futhark
     go
@@ -32,6 +35,7 @@
     nodePackages.npm
     nodePackages.ts-node
     perl
+
     # Desktop programs
     anydesk
     audacity
@@ -45,6 +49,7 @@
     thunderbird
     vlc
     wpsoffice
+
     # Python packages
     python310
     python310Packages.numpy
@@ -59,6 +64,7 @@
     pulseaudio
     xorg.libX11
     zlib
+
     # Drivers
     iio-sensor-proxy
     libfprint
@@ -73,6 +79,7 @@
     usbtop
     usbutils
     usb-reset
+
     # Desktop environment
     gjs
     gnome-network-displays
@@ -82,6 +89,7 @@
     gnome.gnome-tweaks
     gnome.dconf-editor
     gnomeExtensions.screen-rotate
+
     # Windows
     winetricks
     wine

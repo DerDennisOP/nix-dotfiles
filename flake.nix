@@ -10,7 +10,13 @@
       DennisLaptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./system/configuration.nix
+          ./system/configuration_laptop.nix
+       ];
+      };
+      DennisMain = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./system/configuration_main.nix
        ];
       };
     };
