@@ -81,6 +81,7 @@
     gnome.gnome-themes-extra
     gnome.gnome-tweaks
     gnome.dconf-editor
+    gnomeExtensions.screen-rotate
     # Windows
     winetricks
     wine
