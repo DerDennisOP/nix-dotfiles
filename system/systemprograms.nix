@@ -12,6 +12,7 @@
     tree
     unzip
     wget
+    ventoy-bin
     zsh-nix-shell
     # Development tools
     cmake

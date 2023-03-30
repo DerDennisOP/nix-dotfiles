@@ -4,22 +4,6 @@
 
 { config, pkgs, ... }:
 let
-#  makeDesktopItem = import ../build-support/make-desktopitem {
-#    inherit stdenv;
-#  };
-
-#  msWordDesktopItem = makeDesktopItem {
-#    name = "msWord";
-#    desktopName = "Word";
-#    exec = "google-chrome-stable -kiosk https://wavelens.io";
-#    terminal = "true";
-#  };
-#in {
-#  home.packages = [
-#    msWordDesktopItem
-#  ];
-#}
-
 in {
   imports =
     [
@@ -29,7 +13,6 @@ in {
 
   # Bootloader.
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_5_15;
     loader = {
       systemd-boot.enable = true;
       efi = {
@@ -78,8 +61,6 @@ in {
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  firefox
-    #  thunderbird
     ];
   };
 
@@ -92,7 +73,6 @@ in {
       pulse.enable = true;
     };
 
-    # Enable automatic login for the user.
     xserver = {
       enable = true;
 
@@ -103,10 +83,9 @@ in {
 
       # Configure keymap in X11
       layout = "de";
-      #xkbVariant = "";
     };
 
-    fprintd.enable = true;
+    # fprintd.enable = true;
 
     # Custom udev rules
     udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";
@@ -122,10 +101,10 @@ in {
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
-  #systemd.services = {
-  #  "getty@tty1".enable = false;
-  #  "autovt@tty1".enable = false;
-  #};
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -155,6 +134,7 @@ in {
         nixeditp = "nvim ~/dotfiles/system/systemprograms.nix";
 	pipi = "pip install --user";
 	v = "nvim";
+	vim = "nvim";
 	countpy = "find . -name '*.py' | xargs  wc -l";
       };
     };
@@ -194,16 +174,16 @@ in {
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
-    #gnome-tour
+    gnome-tour
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
-    #gnome-terminal
+    gnome-terminal
     gedit # text editor
     epiphany # web browser
     geary # email reader
     evince # document viewer
-    #gnome-characters
+    gnome-characters
     totem # video player
     tali # poker game
     iagno # go game
