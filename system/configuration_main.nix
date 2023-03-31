@@ -1,4 +1,5 @@
-## wiki/wiki/Main_Page# Edit this configuration file to define what should be installed on
+# wiki/wiki/Main_Page
+# Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -13,24 +14,50 @@ in {
 
   # Bootloader.
   boot = {
+    supportedFilesystems = [ "zfs" ];
+    tmpOnTmpfs = true;
+    kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    zfs = {
+      enableUnstable = true;
+      devNodes = "/dev/";
+      forceImportRoot = true;
+      #extraPools = [ "rpool" ];
+    };
     loader = {
-      systemd-boot.enable = true;
+      #systemd-boot.enable = true;
       efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        canTouchEfiVariables = false;
+        efiSysMountPoint = "/boot/efis/nvme0n1p1";
+      };
+      generationsDir.copyKernels = true;
+      grub = {
+        enable = true;
+        copyKernels = true;
+        zfsSupport = true;
+        efiSupport = true;
+        efiInstallAsRemovable = true;
+	fsIdentifier = "uuid";
+        #devices = [ "/dev/nvme0n1" ];
+	device = "nodev";
+	extraInstallCommands = "[ ! -e /boot/efis/nvme0n1p1/EFI ] || cp -r /boot/efis/nvme0n1p1/EFI/* /boot/efis/nvme0n1p1/";
       };
     };
   };
 
-  networking.hostName = "DennisLaptop"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #systemd.services.zfs-mount.enable = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  fileSystems."/".options = [ "X-mount.mkdir" "noatime" ];
+  fileSystems."/boot".options = [ "X-mount.mkdir" "noatime" ];
+  fileSystems."/home".options = [ "X-mount.mkdir" "noatime" ];
+  fileSystems."/var/lib".options = [ "X-mount.mkdir" "noatime" ];
+  fileSystems."/var/log".options = [ "X-mount.mkdir" "noatime" ];
+  fileSystems."/boot/efis/nvme0n1p1".options = [ "x-systemd.idle_timeout=1min" "x-systemd.automount" "nomount" "nofail" "noatime" "X-mount.mkdir" ];
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "DennisMain"; # Define your hostname.
+    hostId = "3457acd3";
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
