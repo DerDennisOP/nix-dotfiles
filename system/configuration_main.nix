@@ -23,10 +23,8 @@ in {
       enableUnstable = true;
       devNodes = "/dev/";
       forceImportRoot = true;
-      #extraPools = [ "rpool" ];
     };
     loader = {
-      #systemd-boot.enable = true;
       efi = {
         canTouchEfiVariables = false;
         efiSysMountPoint = "/boot/efis/nvme0n1p1";
@@ -39,14 +37,11 @@ in {
         efiSupport = true;
         efiInstallAsRemovable = true;
 	fsIdentifier = "uuid";
-        #devices = [ "/dev/nvme0n1" ];
 	device = "nodev";
 	extraInstallCommands = "[ ! -e /boot/efis/nvme0n1p1/EFI ] || cp -r /boot/efis/nvme0n1p1/EFI/* /boot/efis/nvme0n1p1/";
       };
     };
   };
-
-  #systemd.services.zfs-mount.enable = true;
 
   fileSystems."/".options = [ "X-mount.mkdir" "noatime" ];
   fileSystems."/boot".options = [ "X-mount.mkdir" "noatime" ];
@@ -68,12 +63,14 @@ in {
 
   hardware = {
     pulseaudio.enable = false;
-    sensor.iio.enable = true;
   };
 
-  programs.zsh.shellAliases = {
-    nixedit = "nvim ~/dotfiles/system/configuration_main.nix";
-    nixeditp = "nvim ~/dotfiles/system/program_main.nix";
+  programs = {
+    steam.enable = true;
+    zsh.shellAliases = {
+      nixedit = "nvim ~/dotfiles/system/configuration_main.nix";
+      nixeditp = "nvim ~/dotfiles/system/program_main.nix";
+    };
   };
 
   services = {
@@ -93,8 +90,6 @@ in {
 
       layout = "de";
     };
-
-    # fprintd.enable = true;
 
     # Custom udev rules
     udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";

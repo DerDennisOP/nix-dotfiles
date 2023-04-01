@@ -8,7 +8,10 @@
     # Languages
 
     # Desktop programs
+    bitwarden
     firefox
+    protonup-qt
+    spotify
 
     # Python packages
 
@@ -19,6 +22,5 @@
     # Desktop environment
 
     # Windows
-    proton
   ];
 }
