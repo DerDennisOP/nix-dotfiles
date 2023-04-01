@@ -41,8 +41,8 @@ in {
   };
   
   programs.zsh.shellAliases = {
-    nixedit = "nvim ~/dotfiles/system/configuration_main.nix";
-    nixeditp = "nvim ~/dotfiles/system/program_main.nix";
+    nixedit = "nvim ~/dotfiles/system/configuration_laptop.nix";
+    nixeditp = "nvim ~/dotfiles/system/program_laptop.nix";
   };
 
   services = {

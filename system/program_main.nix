@@ -11,7 +11,6 @@
     bitwarden
     firefox
     protonup-qt
-    spotify
 
     # Python packages
 

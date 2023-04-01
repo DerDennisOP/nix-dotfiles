@@ -45,6 +45,7 @@
     gimp
     google-chrome
     nextcloud-client
+    spotify
     thunderbird
     vlc
     wpsoffice
