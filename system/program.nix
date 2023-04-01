@@ -23,7 +23,6 @@
     gnumake
     gpp
     jre8
-    krita
     neovim
     postgresql
     vscode
@@ -54,6 +53,7 @@
     python310
     python310Packages.numpy
     python310Packages.pip
+
     # Libraries
     libgccjit
     libtiff
@@ -66,33 +66,18 @@
     zlib
 
     # Drivers
-    iio-sensor-proxy
-    libfprint
     libGL
-    mesa
     ntfs3g
     ocl-icd
-    rocminfo
-    rocm-opencl-runtime
-    rocm-opencl-icd
     samba
     usbtop
     usbutils
     usb-reset
 
     # Desktop environment
-    gjs
-    gnome-network-displays
-    gnome-themes-extra
-    gnome-randr
-    gnome.gnome-themes-extra
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    gnomeExtensions.screen-rotate
 
     # Windows
     winetricks
     wine
-    wineWowPackages.waylandFull
   ];
 }
