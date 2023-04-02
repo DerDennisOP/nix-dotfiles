@@ -4,11 +4,11 @@
     # CLI programs
 
     # Development tools
-    krita
 
     # Languages
 
     # Desktop programs
+    krita
 
     # Python packages
 
