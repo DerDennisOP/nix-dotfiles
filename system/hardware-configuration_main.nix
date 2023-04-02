@@ -8,40 +8,54 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "rpool/nixos/root";
-      fsType = "zfs";
+  boot = {
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
+      kernelModules = [ ];
     };
+    kernelModules = [ "kvm-amd" ];
+    extraModulePackages = [ ];
+  };
 
-  fileSystems."/boot" =
-    { device = "bpool/nixos/root";
+  fileSystems."/" = {
+      device = "rpool/nixos/root";
       fsType = "zfs";
-    };
+  };
 
-  fileSystems."/home" =
-    { device = "rpool/nixos/home";
+  fileSystems."/boot" = {
+      device = "bpool/nixos/root";
       fsType = "zfs";
-    };
+  };
 
-  fileSystems."/var/lib" =
-    { device = "rpool/nixos/var/lib";
+  fileSystems."/home" = {
+      device = "rpool/nixos/home";
       fsType = "zfs";
-    };
+  };
 
-  fileSystems."/var/log" =
-    { device = "rpool/nixos/var/log";
+  fileSystems."/var/lib" = {
+      device = "rpool/nixos/var/lib";
       fsType = "zfs";
-    };
+  };
 
-  fileSystems."/boot/efis/nvme0n1p1" =
-    { device = "systemd-1";
+  fileSystems."/var/log" = {
+      device = "rpool/nixos/var/log";
+      fsType = "zfs";
+  };
+
+  fileSystems."/boot/efis/nvme0n1p1" = {
+      device = "systemd-1";
       fsType = "autofs";
-    };
+  };
+
+# fileSystems."/run/media/dennis/data" = {
+#     device = "dpool/nixos";
+#     fsType = "zfs";
+# };
+
+  #fileSystems."run/media/dennis/" = {
+ #    device = "systemd-1";
+ #    fsType = "autofs";
+ #};
 
   swapDevices =
     [ { device = "/dev/nvme0n1p4"; }

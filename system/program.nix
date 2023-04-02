@@ -9,11 +9,15 @@
     jp2a
     nixpkgs-fmt
     nmap
+    pciutils
     tree
     unzip
     wget
     ventoy-bin
     zsh-nix-shell
+
+    # Nix Extensions
+    nix-output-monitor
 
     # Development tools
     cmake

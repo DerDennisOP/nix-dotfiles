@@ -63,6 +63,13 @@ in {
 
   hardware = {
     pulseaudio.enable = false;
+    opengl.enable = true;
+    opengl.driSupport = true;
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      modesetting.enable = true;
+      powerManagement.enable = true;
+    };
   };
 
   programs = {
@@ -70,6 +77,7 @@ in {
     zsh.shellAliases = {
       nixedit = "nvim ~/dotfiles/system/configuration_main.nix";
       nixeditp = "nvim ~/dotfiles/system/program_main.nix";
+      nixedith = "nvim ~/dotfiles/system/hardware-configuration_main.nix";
     };
   };
 
@@ -85,6 +93,8 @@ in {
     xserver = {
       enable = true;
 
+      videoDrivers = [ "nvidia" ];
+
       displayManager.sddm.enable = true;
       desktopManager.plasma5.enable = true;
 
@@ -94,6 +104,8 @@ in {
     # Custom udev rules
     udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";
   };
+
+  #qt.enable = true;
 
   security = {
     sudo.wheelNeedsPassword = false;
