@@ -11,13 +11,13 @@
         system = "x86_64-linux";
         modules = [
           ./system/configuration_laptop.nix
-       ];
+        ];
       };
       DennisMain = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./system/configuration_main.nix
-       ];
+        ];
       };
     };
   };

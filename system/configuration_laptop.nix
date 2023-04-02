@@ -39,7 +39,7 @@ in {
     pulseaudio.enable = false;
     sensor.iio.enable = true;
   };
-  
+
   programs.zsh.shellAliases = {
     nixedit = "nvim ~/dotfiles/system/configuration_laptop.nix";
     nixeditp = "nvim ~/dotfiles/system/program_laptop.nix";
@@ -76,11 +76,11 @@ in {
   };
 
   security = {
-  #  pam.services = {
-  #    login.fprintAuth = true;
-  #    xscreensaver.fprintAuth = true;
-  #  };
-  #  rtkit.enable = true;
+    #  pam.services = {
+    #    login.fprintAuth = true;
+    #    xscreensaver.fprintAuth = true;
+    #  };
+    #  rtkit.enable = true;
     sudo.wheelNeedsPassword = false;
   };
 

@@ -1,4 +1,3 @@
-
 { pkgs, ... }:
 {
   # Set your time zone.
@@ -25,6 +24,23 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    git = {
+      enable = true;
+      config = {
+        alias = {
+          ci = "commit";
+          co = "checkout";
+          lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
+          st = "status";
+          undo = "reset --soft HEAD^";
+        };
+        interactive.singlekey = true;
+        pull.rebase = true;
+        rebase.autoStash = true;
+        safe.directory = "/etc/nixos";
+      };
+    };
+    fzf.keybindings = true;
     zsh = {
       enable = true;
       autosuggestions = {
@@ -38,7 +54,7 @@
       enableBashCompletion = true;
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "sudo" "docker" "kubectl" "history" "colorize" "direnv"];
+        plugins = [ "git" "sudo" "docker" "kubectl" "history" "colorize" "direnv" ];
         theme = "agnoster";
       };
       shellAliases = {
@@ -47,10 +63,11 @@
         garbage = "sudo nix-collect-garbage -d";
         nixeditc = "nvim ~/dotfiles/system/configuration.nix";
         nixeditpc = "nvim ~/dotfiles/system/program.nix";
-	pipi = "pip install --user";
-	v = "nvim";
-	vim = "nvim";
-	countpy = "find . -name '*.py' | xargs  wc -l";
+        pypi = "pip install --user";
+        v = "nvim";
+        vim = "nvim";
+        countpy = "find . -name '*.py' | xargs  wc -l";
+        countc = "find . -name '*.cpp' -o -name '*.c' -o -name '*.h' -o -name '*.hpp' | xargs  wc -l";
       };
     };
 

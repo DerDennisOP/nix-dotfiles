@@ -8,6 +8,7 @@
     htop
     jp2a
     nixpkgs-fmt
+    nix-init
     nmap
     pciutils
     tree
@@ -23,7 +24,6 @@
     cmake
     etcher
     gcc
-    git
     gnumake
     gpp
     jre8

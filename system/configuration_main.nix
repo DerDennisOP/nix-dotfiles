@@ -36,9 +36,9 @@ in {
         zfsSupport = true;
         efiSupport = true;
         efiInstallAsRemovable = true;
-	fsIdentifier = "uuid";
-	device = "nodev";
-	extraInstallCommands = "[ ! -e /boot/efis/nvme0n1p1/EFI ] || cp -r /boot/efis/nvme0n1p1/EFI/* /boot/efis/nvme0n1p1/";
+        fsIdentifier = "uuid";
+        device = "nodev";
+        extraInstallCommands = "[ ! -e /boot/efis/nvme0n1p1/EFI ] || cp -r /boot/efis/nvme0n1p1/EFI/* /boot/efis/nvme0n1p1/";
       };
     };
   };
@@ -82,6 +82,10 @@ in {
   };
 
   services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     printing.enable = true;
     pipewire = {
       enable = true;
