@@ -48,7 +48,7 @@ in {
   fileSystems."/home".options = [ "X-mount.mkdir" "noatime" ];
   fileSystems."/var/lib".options = [ "X-mount.mkdir" "noatime" ];
   fileSystems."/var/log".options = [ "X-mount.mkdir" "noatime" ];
-  fileSystems."/boot/efis/nvme0n1p1".options = [ "x-systemd.idle_timeout=1min" "x-systemd.automount" "nomount" "nofail" "noatime" "X-mount.mkdir" ];
+  fileSystems."/boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1".options = [ "x-systemd.idle_timeout=1min" "x-systemd.automount" "nomount" "nofail" "noatime" "X-mount.mkdir" ];
 
   networking = {
     hostName = "DennisMain"; # Define your hostname.
