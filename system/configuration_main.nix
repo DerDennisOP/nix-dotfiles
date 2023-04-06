@@ -21,13 +21,13 @@ in {
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     zfs = {
       enableUnstable = true;
-      devNodes = "/dev/";
+      devNodes = "/dev/disk/by-id/";
       forceImportRoot = true;
     };
     loader = {
       efi = {
         canTouchEfiVariables = false;
-        efiSysMountPoint = "/boot/efis/nvme0n1p1";
+        efiSysMountPoint = "/boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1";
       };
       generationsDir.copyKernels = true;
       grub = {
@@ -38,7 +38,7 @@ in {
         efiInstallAsRemovable = true;
         fsIdentifier = "uuid";
         device = "nodev";
-        extraInstallCommands = "[ ! -e /boot/efis/nvme0n1p1/EFI ] || cp -r /boot/efis/nvme0n1p1/EFI/* /boot/efis/nvme0n1p1/";
+        extraInstallCommands = "[ ! -e /boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1/EFI ] || cp -r /boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1/EFI/* /boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1";
       };
     };
   };

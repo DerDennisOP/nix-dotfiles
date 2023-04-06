@@ -20,53 +20,58 @@
 
   fileSystems."/" =
     {
-      device = "rpool/nixos/root";
+      device = "proot/nixos/root";
       fsType = "zfs";
     };
 
 
   fileSystems."/boot" =
     {
-      device = "bpool/nixos/root";
+      device = "pboot/nixos/root";
       fsType = "zfs";
   };
 
   fileSystems."/home" =
     {
-      device = "rpool/nixos/home";
+      device = "proot/nixos/home";
       fsType = "zfs";
   };
 
   fileSystems."/var/lib" =
     {
-      device = "rpool/nixos/var/lib";
+      device = "proot/nixos/var/lib";
       fsType = "zfs";
   };
 
   fileSystems."/var/log" =
     {
-      device = "rpool/nixos/var/log";
+      device = "proot/nixos/var/log";
       fsType = "zfs";
   };
 
-  fileSystems."/boot/efis/nvme0n1p1" =
+  fileSystems."/boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1" =
     {
       device = "systemd-1";
       fsType = "autofs";
   };
 
-# fileSystems."/run/media/dennis/data" = {
-#     device = "dpool/nixos";
-#     fsType = "zfs";
-# };
+  fileSystems."/media/data" = {
+      device = "pdata/data";
+      fsType = "zfs";
+  };
 
-  #fileSystems."run/media/dennis/" = {
- #    device = "systemd-1";
- #    fsType = "autofs";
- #};
+  fileSystems."/media/archive1" = {
+      device = "parchive/data";
+      fsType = "zfs";
+  };
+
+  fileSystems."/media/archive2" = {
+      device = "parchive2/data";
+      fsType = "zfs";
+  };
 
   swapDevices =
-    [{ device = "/dev/nvme0n1p4"; }];
+    [{ device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
