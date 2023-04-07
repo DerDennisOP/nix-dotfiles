@@ -83,6 +83,7 @@
         libssh
         bzip2
         libxml2
+	libmysqlclient
         acl
         libsodium
         util-linux

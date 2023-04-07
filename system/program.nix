@@ -7,6 +7,8 @@
     fd
     htop
     jp2a
+    licensee
+    neofetch
     nixpkgs-fmt
     nix-init
     nmap
@@ -30,7 +32,7 @@
     neovim
     postgresql
     vscode
-
+    
     # Languages
     futhark
     go
@@ -61,6 +63,7 @@
 
     # Libraries
     libgccjit
+    libmysqlclient
     libtiff
     opencl-headers
     opencascade
