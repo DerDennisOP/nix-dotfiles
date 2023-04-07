@@ -2,7 +2,7 @@
   description = "NixOS configuration of Dennis";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
