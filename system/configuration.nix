@@ -59,7 +59,7 @@
       };
       shellAliases = {
         l = "ls -l -a";
-        update = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+        update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
         garbage = "sudo nix-collect-garbage -d";
         nixeditc = "nvim ~/dotfiles/system/configuration.nix";
         nixeditpc = "nvim ~/dotfiles/system/program.nix";
@@ -69,6 +69,12 @@
         countpy = "find . -name '*.py' | xargs  wc -l";
         countc = "find . -name '*.cpp' -o -name '*.c' -o -name '*.h' -o -name '*.hpp' | xargs  wc -l";
       };
+    };
+
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+      vimAlias = true;
     };
 
     nix-ld = {

@@ -3,8 +3,10 @@
   environment.systemPackages = with pkgs; [
     # CLI programs
     cowsay
+    deadnix
     direnv
     fd
+    file
     htop
     jp2a
     licensee
@@ -13,10 +15,12 @@
     nix-init
     nmap
     pciutils
+    ripgrep
     tree
     unzip
     wget
     ventoy-bin
+    zoxide
     zsh-nix-shell
 
     # Nix Extensions
@@ -29,7 +33,7 @@
     gnumake
     gpp
     jre8
-    neovim
+    mariadb
     postgresql
     vscode
     

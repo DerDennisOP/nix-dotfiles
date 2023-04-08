@@ -3,14 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    c3d2-user-module.url = "git+https://gitea.c3d2.de/C3D2/nix-user-module.git";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, c3d2-user-module, ... }: {
     nixosConfigurations = {
       DennisLaptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./system/configuration_laptop.nix
+	  c3d2-user-module.nixosModule
         ];
       };
       DennisMain = nixpkgs.lib.nixosSystem {
