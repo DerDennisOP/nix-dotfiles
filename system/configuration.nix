@@ -4,7 +4,7 @@
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "de_DE.utf8";
+  i18n.defaultLocale = "en_US.utf8";
 
   # enable Font folder
   fonts.fontDir.enable = true;
