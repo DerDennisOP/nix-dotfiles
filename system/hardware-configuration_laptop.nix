@@ -41,7 +41,5 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    opengl.mesaPackage = pkgs.mesa_22;
-    opengl.mesaPackage32 = pkgs.mesa_22;
   };
 }

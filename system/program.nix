@@ -13,6 +13,7 @@
     neofetch
     nixpkgs-fmt
     nix-init
+    nix-prefetch
     nmap
     pciutils
     ripgrep
@@ -34,6 +35,7 @@
     gpp
     jre8
     mariadb
+    postman
     postgresql
     vscode
     
@@ -56,6 +58,7 @@
     google-chrome
     nextcloud-client
     spotify
+    teams
     thunderbird
     vlc
     wpsoffice
