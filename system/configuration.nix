@@ -22,6 +22,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # Allow broken packages
+  nixpkgs.config.allowBroken = true;
 
   programs = {
     git = {
@@ -107,6 +109,7 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
+    "adobe-reader-9.5.5"
     "electron-12.2.3"
     "electron-14.2.9"
   ];
@@ -121,4 +124,23 @@
       options = "--delete-oder-than 14d";
     };
   };
+
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    cheese # webcam tool
+    gnome-music
+    gnome-terminal
+    gedit # text editor
+    epiphany # web browser
+    geary # email reader
+    evince # document viewer
+    gnome-characters
+    totem # video player
+    tali # poker game
+    iagno # go game
+    hitori # sudoku game
+    atomix # puzzle game
+  ]);
 }

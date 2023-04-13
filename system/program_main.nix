@@ -8,11 +8,13 @@
     # Languages
 
     # Desktop programs
+    adobe-reader
     bitwarden
     firefox
     lutris
     protonup-qt
     teamspeak5_client
+    whatsapp-for-linux
 
     # Python packages
 
@@ -20,13 +22,15 @@
 
     # Drivers
     cudatoolkit
+    openhmd
 
     # Desktop environment
-    conky
-    lightly-qt
-    latte-dock
-    ulauncher
 
     # Windows
+    libvirt
+    qemu_full
+    wine
+    win-qemu
+    virt-manager
   ];
 }

@@ -37,6 +37,7 @@
     mariadb
     postman
     postgresql
+    postman
     vscode
     
     # Languages
