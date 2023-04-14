@@ -10,17 +10,19 @@
     htop
     jp2a
     licensee
+    lsof
     neofetch
-    nixpkgs-fmt
     nix-init
     nix-prefetch
+    nixpkgs-fmt
     nmap
     pciutils
     ripgrep
+    tig
     tree
     unzip
-    wget
     ventoy-bin
+    wget
     zoxide
     zsh-nix-shell
 
