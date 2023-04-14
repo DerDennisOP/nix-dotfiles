@@ -8,13 +8,11 @@
     # Languages
 
     # Desktop programs
-    adobe-reader
     bitwarden
     firefox
     lutris
     protonup-qt
     teamspeak5_client
-    whatsapp-for-linux
 
     # Python packages
 

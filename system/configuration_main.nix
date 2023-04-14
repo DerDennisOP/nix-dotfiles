@@ -74,6 +74,7 @@ in {
   };
 
   programs = {
+    droidcam.enable = true;
     steam.enable = true;
     zsh.shellAliases = {
       nixedit = "nvim ~/dotfiles/system/configuration_main.nix";

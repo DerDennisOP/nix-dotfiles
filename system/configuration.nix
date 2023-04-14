@@ -60,16 +60,17 @@
         theme = "agnoster";
       };
       shellAliases = {
-        l = "ls -l -a";
-        update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
+        countc = "find . -name '*.cpp' -o -name '*.c' -o -name '*.h' -o -name '*.hpp' | xargs  wc -l";
+        countpy = "find . -name '*.py' | xargs  wc -l";
         garbage = "sudo nix-collect-garbage -d";
+        l = "ls -l -a";
+        nixdir = "echo \"use flake\" > .envrc && direnv allow";
         nixeditc = "nvim ~/dotfiles/system/configuration.nix";
         nixeditpc = "nvim ~/dotfiles/system/program.nix";
         pypi = "pip install --user";
+        update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
         v = "nvim";
         vim = "nvim";
-        countpy = "find . -name '*.py' | xargs  wc -l";
-        countc = "find . -name '*.cpp' -o -name '*.c' -o -name '*.h' -o -name '*.hpp' | xargs  wc -l";
       };
     };
 
