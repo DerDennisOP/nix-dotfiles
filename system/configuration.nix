@@ -26,6 +26,7 @@
   nixpkgs.config.allowBroken = true;
 
   programs = {
+    fzf.keybindings = true;
     git = {
       enable = true;
       config = {
@@ -42,7 +43,6 @@
         safe.directory = "/etc/nixos";
       };
     };
-    fzf.keybindings = true;
     zsh = {
       enable = true;
       autosuggestions = {
@@ -78,6 +78,12 @@
       enable = true;
       defaultEditor = true;
       vimAlias = true;
+      viAlias = true;
+      configure = {
+        packages.myVimPackage = with pkgs.vimPlugins; {
+	  start = [ fugitive nvim-treesitter.withAllGrammars nvim-treesitter-refactor vim-cpp-enhanced-highlight colorizer ];
+	};
+      };
     };
 
     nix-ld = {

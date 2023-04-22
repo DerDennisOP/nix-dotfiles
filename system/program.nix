@@ -21,7 +21,7 @@
     tig
     tree
     unzip
-    ventoy-bin
+    ventoy
     wget
     zoxide
     zsh-nix-shell
@@ -61,7 +61,6 @@
     google-chrome
     nextcloud-client
     spotify
-    teams
     thunderbird
     vlc
     wpsoffice
