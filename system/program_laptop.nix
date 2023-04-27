@@ -8,7 +8,9 @@
     # Languages
 
     # Desktop programs
+    freecad
     krita
+    xournalpp
 
     # Python packages
 

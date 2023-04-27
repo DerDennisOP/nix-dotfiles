@@ -23,14 +23,18 @@ in {
         efiSysMountPoint = "/boot/efi";
       };
     };
+    initrd.kernelModules = [ "amdgpu" ];
   };
 
   networking = {
     hostName = "DennisLaptop"; # Define your hostname.
     networkmanager.enable = true;
+    #firewall.enable = false;
+    firewall.allowedTCPPorts = [ 8000 ];
   };
 
   c3d2.audioStreaming = true;
+
 
   sound = {
     enable = true;
@@ -40,6 +44,15 @@ in {
   hardware = {
     pulseaudio.enable = false;
     sensor.iio.enable = true;
+
+    opengl = {
+      enable = true;
+      driSupport = true;
+      extraPackages = with pkgs; [
+        rocm-opencl-icd
+        rocm-opencl-runtime
+      ];
+    };
   };
 
   programs.zsh.shellAliases = {
@@ -59,6 +72,8 @@ in {
 
     xserver = {
       enable = true;
+
+      videoDrivers = [ "amdgpu" ];
 
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
