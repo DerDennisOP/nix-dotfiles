@@ -26,6 +26,7 @@
   nixpkgs.config.allowBroken = true;
 
   programs = {
+    command-not-found.enable = true;
     fzf.keybindings = true;
     git = {
       enable = true;
@@ -60,8 +61,7 @@
         theme = "agnoster";
       };
       shellAliases = {
-        countc = "find . -name '*.cpp' -o -name '*.c' -o -name '*.h' -o -name '*.hpp' | xargs  wc -l";
-        countpy = "find . -name '*.py' | xargs  wc -l";
+	gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -eq 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
         garbage = "sudo nix-collect-garbage -d";
         l = "ls -l -a";
         nixdir = "echo \"use flake\" > .envrc && direnv allow";
@@ -72,6 +72,13 @@
         v = "nvim";
         vim = "nvim";
       };
+      promptInit = ''
+        command_not_found_handler() {
+	  local command="$1"
+	  local parameters=("$\{(@)argv[2, -1]}")
+	  comma "$command" "$parameters"
+	}
+      '';
     };
 
     neovim = {
@@ -85,6 +92,11 @@
 	};
       };
     };
+
+    #nix-index = {
+    #  enable = true;
+    #  #enableZshIntegration = true;
+    #};
 
     nix-ld = {
       enable = true;

@@ -2,13 +2,17 @@
 {
   environment.systemPackages = with pkgs; [
     # CLI programs
+    btop
+    comma
     cowsay
     deadnix
     direnv
     fd
+    ffmpeg_5-full
     file
     htop
     jp2a
+    jq
     licensee
     lsof
     neofetch
@@ -19,6 +23,7 @@
     pciutils
     ripgrep
     tig
+    tokei
     tree
     unzip
     ventoy
@@ -30,6 +35,7 @@
     nix-output-monitor
 
     # Development tools
+    cargo
     cmake
     etcher
     gcc
@@ -37,18 +43,19 @@
     gpp
     jre8
     mariadb
-    postman
     postgresql
     postman
+    rustup
     vscode
     
     # Languages
     futhark
     go
-    nodejs
     nodePackages.npm
     nodePackages.ts-node
+    nodejs
     perl
+    rustc
 
     # Desktop programs
     anydesk
