@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # CLI programs
+    gource
 
     # Development tools
 

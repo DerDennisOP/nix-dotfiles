@@ -49,7 +49,7 @@
     vscode
     
     # Languages
-    futhark
+    #futhark
     go
     nodePackages.npm
     nodePackages.ts-node

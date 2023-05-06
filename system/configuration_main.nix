@@ -17,7 +17,7 @@ in {
   # Bootloader.
   boot = {
     supportedFilesystems = [ "zfs" ];
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
     zfs = {
       enableUnstable = true;
