@@ -61,7 +61,7 @@
         theme = "agnoster";
       };
       shellAliases = {
-	gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -eq 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
+	gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
         garbage = "sudo nix-collect-garbage -d";
         l = "ls -l -a";
         nixdir = "echo \"use flake\" > .envrc && direnv allow";
