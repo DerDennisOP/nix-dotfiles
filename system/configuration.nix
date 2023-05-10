@@ -24,10 +24,11 @@
   nixpkgs.config.allowUnfree = true;
   # Allow broken packages
   nixpkgs.config.allowBroken = true;
+  nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
   programs = {
     command-not-found.enable = true;
-    fzf.keybindings = true;
+    #fzf.keybindings = true;
     git = {
       enable = true;
       config = {
@@ -101,6 +102,7 @@
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
+        linuxKernel.packages.linux_6_2.nvidia_x11
         zlib
         zstd
         stdenv.cc.cc
@@ -133,8 +135,6 @@
     "electron-14.2.9"
   ];
 
-  system.stateVersion = "22.11";
-
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
     gc = {
@@ -162,4 +162,6 @@
     hitori # sudoku game
     atomix # puzzle game
   ]);
+
+  system.stateVersion = "22.11";
 }

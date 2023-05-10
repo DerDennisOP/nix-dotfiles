@@ -19,6 +19,7 @@ in {
     supportedFilesystems = [ "zfs" ];
     tmp.useTmpfs = true;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+    kernelParams = [ "nordrand" ];
     zfs = {
       enableUnstable = true;
       devNodes = "/dev/disk/by-id/";
@@ -62,6 +63,7 @@ in {
   };
 
   hardware = {
+    enableAllFirmware = true;
     steam-hardware.enable = true;
     pulseaudio.enable = false;
     opengl.enable = true;
@@ -95,6 +97,8 @@ in {
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+
+    xmr-stak.cudaSupport = true;
 
     xserver = {
       enable = true;

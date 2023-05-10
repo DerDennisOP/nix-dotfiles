@@ -16,8 +16,10 @@
     teamspeak5_client
 
     # Python packages
+    python310Packages.torch-bin
 
     # Libraries
+    cudaPackages.cudnn
 
     # Drivers
     cudatoolkit
