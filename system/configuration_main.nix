@@ -83,6 +83,13 @@ in {
       nixeditp = "nvim ~/dotfiles/system/program_main.nix";
       nixedith = "nvim ~/dotfiles/system/hardware-configuration_main.nix";
     };
+    
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        linuxKernel.packages.linux_6_2.nvidia_x11
+      ];
+    };
   };
 
   services = {
@@ -114,6 +121,8 @@ in {
     # Custom udev rules
     udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";
   };
+
+  
 
   #qt.enable = true;
 

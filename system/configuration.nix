@@ -102,7 +102,6 @@
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        linuxKernel.packages.linux_6_2.nvidia_x11
         zlib
         zstd
         stdenv.cc.cc
