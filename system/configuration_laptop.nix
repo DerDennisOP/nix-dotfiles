@@ -35,7 +35,6 @@ in {
 
   c3d2.audioStreaming = true;
 
-
   sound = {
     enable = true;
     mediaKeys.enable = true;
