@@ -28,7 +28,7 @@
 
   programs = {
     command-not-found.enable = true;
-    #fzf.keybindings = true;
+    fzf.keybindings = true;
     git = {
       enable = true;
       config = {
