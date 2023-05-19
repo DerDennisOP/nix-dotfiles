@@ -45,6 +45,7 @@
     mariadb
     postgresql
     postman
+    signal-desktop
     rustup
     vscode
     
