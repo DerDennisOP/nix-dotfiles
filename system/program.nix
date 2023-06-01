@@ -67,6 +67,7 @@
     geogebra6
     gimp
     google-chrome
+    gparted
     nextcloud-client
     spotify
     thunderbird

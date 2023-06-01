@@ -6,6 +6,14 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
 
+  # security
+  security.pam.yubico = {
+    enable = true;
+    mode = "challenge-response";
+    control = "sufficient";
+    id = [ "22928767" ];
+  };
+
   # enable Font folder
   fonts.fontDir.enable = true;
 

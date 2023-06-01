@@ -6,11 +6,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1683754009,
-        "narHash": "sha256-O+zkiMCGHqCbB2STWvEHqSs32V79O43bgvZIfTJdbbA=",
+        "lastModified": 1685124252,
+        "narHash": "sha256-UodxNvd5uSz3QLwVod9Q+MDldJp3zyY9PDVA5eOOlRg=",
         "ref": "refs/heads/master",
-        "rev": "9c66645cc97b9328cee86a394294339c791c5cce",
-        "revCount": 27,
+        "rev": "9657613d51a949be1129f3d588ca5f068d9c2495",
+        "revCount": 28,
         "type": "git",
         "url": "https://gitea.c3d2.de/C3D2/nix-user-module.git"
       },
@@ -42,11 +42,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1684385584,
-        "narHash": "sha256-O7y0gK8OLIDqz+LaHJJyeu09IGiXlZIS3+JgEzGmmJA=",
+        "lastModified": 1685383865,
+        "narHash": "sha256-3uQytfnotO6QJv3r04ajSXbEFMII0dUtw0uqYlZ4dbk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "48a0fb7aab511df92a17cf239c37f2bd2ec9ae3a",
+        "rev": "5e871d8aa6f57cc8e0dc087d1c5013f6e212b4ce",
         "type": "github"
       },
       "original": {

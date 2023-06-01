@@ -127,6 +127,6 @@ in {
   #qt.enable = true;
 
   security = {
-    sudo.wheelNeedsPassword = false;
+    sudo.wheelNeedsPassword = true;
   };
 }

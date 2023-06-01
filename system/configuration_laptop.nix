@@ -14,19 +14,31 @@ in {
       ./program.nix
     ];
 
+
   # Bootloader.
+
   boot = {
     loader = {
-      systemd-boot.enable = true;
-      efi = {
+      #systemd-boot.enable = false;
+      grub = {
+        enable = true;
+        enableCryptodisk = true;
+
+        devices = [ "nodev" "/dev/nvme0n1" ];
+        
+      };
+    efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
+        #efiSysMountPoint = "/boot/efi";
       };
     };
     initrd.kernelModules = [ "amdgpu" ];
+    initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/4964c656-c64a-490a-a181-ec348874bd7f";
+
   };
 
   networking = {
+    hostId = "a298ad87";
     hostName = "DennisLaptop"; # Define your hostname.
     networkmanager.enable = true;
     #firewall.enable = false;
@@ -97,6 +109,6 @@ in {
     #    xscreensaver.fprintAuth = true;
     #  };
     #  rtkit.enable = true;
-    sudo.wheelNeedsPassword = false;
+    sudo.wheelNeedsPassword = true;
   };
 }
