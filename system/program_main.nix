@@ -28,10 +28,6 @@
     # Desktop environment
 
     # Windows
-    libvirt
-    qemu_full
-    wine
-    win-qemu
-    virt-manager
+    virtmanager
   ];
 }

@@ -19,7 +19,7 @@ in {
     supportedFilesystems = [ "zfs" ];
     tmp.useTmpfs = true;
     kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-    kernelParams = [ "nordrand" ];
+    kernelParams = [ "kvm-amd" "nordrand" ];
     zfs = {
       enableUnstable = true;
       devNodes = "/dev/disk/by-id/";
@@ -43,6 +43,8 @@ in {
       };
     };
   };
+
+  virtualisation.libvirtd.enable = true;
 
   fileSystems."/".options = [ "X-mount.mkdir" "noatime" ];
   fileSystems."/boot".options = [ "X-mount.mkdir" "noatime" ];
@@ -76,6 +78,7 @@ in {
   };
 
   programs = {
+    dconf.enable = true;
     droidcam.enable = true;
     steam.enable = true;
     zsh.shellAliases = {
@@ -84,12 +87,12 @@ in {
       nixedith = "nvim ~/dotfiles/system/hardware-configuration_main.nix";
     };
     
-    nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        linuxKernel.packages.linux_6_2.nvidia_x11
-      ];
-    };
+    #nix-ld = {
+    #  enable = true;
+    #  libraries = with pkgs; [
+    #    linuxKernel.packages.linux_6_2.nvidia_x11
+    #  ];
+    #};
   };
 
   services = {
@@ -118,12 +121,8 @@ in {
       layout = "de";
     };
 
-    # Custom udev rules
     udev.extraRules = "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"03e7\", MODE=\"0666\"\n";
   };
-
-  
-
   #qt.enable = true;
 
   security = {
