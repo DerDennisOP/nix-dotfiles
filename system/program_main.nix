@@ -28,6 +28,6 @@
     # Desktop environment
 
     # Windows
-    virtmanager
+    virtualbox
   ];
 }
