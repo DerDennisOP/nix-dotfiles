@@ -18,6 +18,12 @@
       fsType = "zfs";
     };
 
+  fileSystems."/boot" =
+    {
+      device = "/dev/disk/by-uuid/94E9-A98F";
+      fsType = "vfat";
+    };
+
   fileSystems."/var/lib" =
     { device = "zroot/var/lib";
       fsType = "zfs";

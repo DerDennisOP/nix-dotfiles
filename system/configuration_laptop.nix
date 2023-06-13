@@ -19,18 +19,8 @@ in {
 
   boot = {
     loader = {
-      #systemd-boot.enable = false;
-      grub = {
-        enable = true;
-        enableCryptodisk = true;
-
-        devices = [ "nodev" "/dev/nvme0n1" ];
-        
-      };
-    efi = {
-        canTouchEfiVariables = true;
-        #efiSysMountPoint = "/boot/efi";
-      };
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
     };
     initrd.kernelModules = [ "amdgpu" ];
     initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/4964c656-c64a-490a-a181-ec348874bd7f";
