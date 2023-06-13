@@ -7,6 +7,21 @@
   i18n.defaultLocale = "en_US.utf8";
 
   # security
+  services = {
+    yubikey-agent.enable = true;
+    pcscd.enable = true;
+    udev.packages = with pkgs; [
+      yubikey-personalization
+      yubioath-flutter
+    ];
+    gnome.gnome-keyring.enable = lib.mkForce false;
+  };
+
+  environment.shellInit = ''
+    gpg-connect-agent /bye
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  '';
+
   security.pam.yubico = {
     enable = true;
     mode = "challenge-response";
@@ -30,9 +45,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # Allow broken packages
-  nixpkgs.config.allowBroken = true;
-  nixpkgs.config.allowUnfreePredicate = (pkg: true);
 
   programs = {
     command-not-found.enable = true;
