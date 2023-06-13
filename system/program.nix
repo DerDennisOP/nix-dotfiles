@@ -79,22 +79,7 @@
     python310Packages.numpy
     python310Packages.pip
 
-    # Libraries
-    libgccjit
-    libmysqlclient
-    libtiff
-    opencl-headers
-    opencascade
-    opencv4
-    portaudio
-    pulseaudio
-    xorg.libX11
-    zlib
-
     # Drivers
-    libGL
-    ntfs3g
-    ocl-icd
     samba
     usbtop
     usbutils
@@ -105,5 +90,9 @@
     # Windows
     winetricks
     wine
+
+    # YubiKey
+    yubikey-manager
+    yubikey-personalization
   ];
 }

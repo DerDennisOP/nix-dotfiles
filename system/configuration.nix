@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -52,6 +52,10 @@
         rebase.autoStash = true;
         safe.directory = "/etc/nixos";
       };
+    };
+    gnupg.agent = {
+	enable = true;
+	enableSSHSupport = true;
     };
     zsh = {
       enable = true;
