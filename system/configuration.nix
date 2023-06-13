@@ -159,7 +159,10 @@
   ];
 
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      keep-outputs = true;
+    };
     gc = {
       automatic = true;
       dates = "weekly";
