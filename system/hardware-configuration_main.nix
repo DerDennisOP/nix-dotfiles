@@ -29,45 +29,45 @@
     {
       device = "pboot/nixos/root";
       fsType = "zfs";
-  };
+    };
 
   fileSystems."/home" =
     {
       device = "proot/nixos/home";
       fsType = "zfs";
-  };
+    };
 
   fileSystems."/var/lib" =
     {
       device = "proot/nixos/var/lib";
       fsType = "zfs";
-  };
+    };
 
   fileSystems."/var/log" =
     {
       device = "proot/nixos/var/log";
       fsType = "zfs";
-  };
+    };
 
   fileSystems."/boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1" =
     {
       device = "systemd-1";
       fsType = "autofs";
-  };
+    };
 
   fileSystems."/media/data" = {
-      device = "pdata/data";
-      fsType = "zfs";
+    device = "pdata/data";
+    fsType = "zfs";
   };
 
   fileSystems."/media/archive1" = {
-      device = "parchive/data";
-      fsType = "zfs";
+    device = "parchive/data";
+    fsType = "zfs";
   };
 
   fileSystems."/media/archive2" = {
-      device = "parchive2/data";
-      fsType = "zfs";
+    device = "parchive2/data";
+    fsType = "zfs";
   };
 
   swapDevices =

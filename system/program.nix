@@ -48,7 +48,7 @@
     signal-desktop
     rustup
     vscode
-    
+
     # Languages
     futhark
     go

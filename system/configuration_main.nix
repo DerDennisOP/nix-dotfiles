@@ -86,7 +86,7 @@ in {
       nixeditp = "nvim ~/dotfiles/system/program_main.nix";
       nixedith = "nvim ~/dotfiles/system/hardware-configuration_main.nix";
     };
-    
+
     #nix-ld = {
     #  enable = true;
     #  libraries = with pkgs; [

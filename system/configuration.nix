@@ -66,8 +66,8 @@
       };
     };
     gnupg.agent = {
-	enable = true;
-	enableSSHSupport = true;
+      enable = true;
+      enableSSHSupport = true;
     };
     zsh = {
       enable = true;
@@ -86,7 +86,7 @@
         theme = "agnoster";
       };
       shellAliases = {
-	gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
+        gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
         garbage = "sudo nix-collect-garbage -d";
         l = "ls -l -a";
         nixdir = "echo \"use flake\" > .envrc && direnv allow";
@@ -99,10 +99,10 @@
       };
       promptInit = ''
         command_not_found_handler() {
-	  local command="$1"
-	  local parameters=("$\{(@)argv[2, -1]}")
-	  comma "$command" "$parameters"
-	}
+          local command="$1"
+          local parameters=("$\{(@)argv[2, -1]}")
+          comma "$command" "$parameters"
+        }
       '';
     };
 
@@ -113,8 +113,8 @@
       viAlias = true;
       configure = {
         packages.myVimPackage = with pkgs.vimPlugins; {
-	  start = [ fugitive nvim-treesitter.withAllGrammars nvim-treesitter-refactor vim-cpp-enhanced-highlight colorizer ];
-	};
+          start = [ fugitive nvim-treesitter.withAllGrammars nvim-treesitter-refactor vim-cpp-enhanced-highlight colorizer ];
+        };
       };
     };
 
@@ -135,7 +135,7 @@
         libssh
         bzip2
         libxml2
-	libmysqlclient
+        libmysqlclient
         acl
         libsodium
         util-linux

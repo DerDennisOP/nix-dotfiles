@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
@@ -14,7 +15,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "zroot/ROOT/default";
+    {
+      device = "zroot/ROOT/default";
       fsType = "zfs";
     };
 
@@ -25,33 +27,37 @@
     };
 
   fileSystems."/var/lib" =
-    { device = "zroot/var/lib";
+    {
+      device = "zroot/var/lib";
       fsType = "zfs";
     };
 
   fileSystems."/var/log" =
-    { device = "zroot/var/log";
+    {
+      device = "zroot/var/log";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "zroot/nix";
+    {
+      device = "zroot/nix";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "zroot/home";
+    {
+      device = "zroot/home";
       fsType = "zfs";
     };
 
   fileSystems."/home/dennis" =
-    { device = "zroot/home/dennis";
+    {
+      device = "zroot/home/dennis";
       fsType = "zfs";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/89c28811-5cc0-4657-af8f-deefd8427585"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/89c28811-5cc0-4657-af8f-deefd8427585"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

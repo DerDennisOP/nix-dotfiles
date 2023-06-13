@@ -12,7 +12,7 @@
         system = "x86_64-linux";
         modules = [
           ./system/configuration_laptop.nix
-	  c3d2-user-module.nixosModule
+          c3d2-user-module.nixosModule
         ];
       };
       DennisMain = nixpkgs.lib.nixosSystem {
