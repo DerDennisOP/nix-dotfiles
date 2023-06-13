@@ -27,6 +27,9 @@
     gnome.dconf-editor
     gnomeExtensions.screen-rotate
 
+    # Games
+    mindustry-wayland
+
     # Windows
     wineWowPackages.waylandFull
   ];
