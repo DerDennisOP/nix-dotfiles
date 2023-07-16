@@ -8,12 +8,12 @@
 
   # security
   services = {
-    yubikey-agent.enable = true;
     pcscd.enable = true;
+
     udev.packages = with pkgs; [
       yubikey-personalization
-      yubioath-flutter
     ];
+
     gnome.gnome-keyring.enable = lib.mkForce false;
   };
 

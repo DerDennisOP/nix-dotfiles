@@ -14,17 +14,28 @@ in {
       ./program.nix
     ];
 
-
-  # Bootloader.
-
   boot = {
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    initrd.kernelModules = [ "amdgpu" ];
-    initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/4964c656-c64a-490a-a181-ec348874bd7f";
-
+    initrd = {
+      kernelModules = [ "amdgpu" ];
+      luks = {
+        #fido2Support = true;
+        devices."cryptroot" = {
+          device = "/dev/disk/by-uuid/4964c656-c64a-490a-a181-ec348874bd7f";
+          #crypttabExtraOpts = ["fido2-device=auto"];
+          #fido2 = {
+            #publicKey = ../yubikey.pub;
+            #encryptedPass = ../yubikey.asc;
+            #passwordLess = true;
+            #gracePeriod = 10;
+            #credential = "7d9ee873a05fdd7dec02481d5677d028a9b48f624d90718f2be23e4fe28ba27b3ebf8d8ba5eeeb38c817fa099ef72c0e";
+          #};
+        };
+      };
+    };
   };
 
   networking = {
@@ -56,10 +67,13 @@ in {
     };
   };
 
-  programs.zsh.shellAliases = {
-    nixedit = "nvim ~/dotfiles/system/configuration_laptop.nix";
-    nixeditp = "nvim ~/dotfiles/system/program_laptop.nix";
-    nixedith = "nvim ~/dotfiles/system/hardware-configuration_laptop.nix";
+  programs = {
+    steam.enable = true;
+    zsh.shellAliases = {
+      nixedit = "nvim ~/dotfiles/system/configuration_laptop.nix";
+      nixeditp = "nvim ~/dotfiles/system/program_laptop.nix";
+      nixedith = "nvim ~/dotfiles/system/hardware-configuration_laptop.nix";
+    };
   };
 
   services = {

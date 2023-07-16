@@ -92,7 +92,7 @@
     wine
 
     # YubiKey
-    yubikey-manager
+    yubikey-manager-qt
     yubikey-personalization
   ];
 }
