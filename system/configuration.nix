@@ -8,11 +8,14 @@
 
   # security
   services = {
-    pcscd.enable = true;
+    # Not working yubikey with pgp when enabled
+    #pcscd.enable = true;
 
     udev.packages = with pkgs; [
       yubikey-personalization
     ];
+
+    openssh.extraConfig = ''StreamLocalBindUnlink yes'';
 
     gnome.gnome-keyring.enable = lib.mkForce false;
   };
@@ -69,6 +72,7 @@
       enable = true;
       enableSSHSupport = true;
     };
+    ssh.startAgent = false;
     zsh = {
       enable = true;
       autosuggestions = {
