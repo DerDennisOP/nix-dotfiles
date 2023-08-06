@@ -17,7 +17,7 @@
 
     openssh.extraConfig = ''StreamLocalBindUnlink yes'';
 
-    gnome.gnome-keyring.enable = lib.mkForce false;
+    #gnome.gnome-keyring.enable = lib.mkForce false;
   };
 
   environment.shellInit = ''

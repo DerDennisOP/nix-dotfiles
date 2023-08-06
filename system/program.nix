@@ -86,6 +86,14 @@
     usb-reset
 
     # Desktop environment
+    gnome-extension-manager
+    gnome-network-displays
+    gnome-themes-extra   
+    gnome-randr
+    gnome.gnome-themes-extra
+    gnome.gnome-tweaks
+    gnome.dconf-editor
+    gnomeExtensions.screen-rotate
 
     # Windows
     winetricks

@@ -18,15 +18,6 @@
     iio-sensor-proxy
     rocminfo
 
-    # Desktop environment
-    gnome-network-displays
-    gnome-themes-extra
-    gnome-randr
-    gnome.gnome-themes-extra
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    gnomeExtensions.screen-rotate
-
     # Games
     mindustry-wayland
 
