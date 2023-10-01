@@ -15,6 +15,7 @@
     jq
     licensee
     lsof
+    ncpamixer
     neofetch
     nix-init
     nix-prefetch
@@ -45,8 +46,8 @@
     mariadb
     postgresql
     postman
-    signal-desktop
     rustup
+    signal-desktop
     vscode
 
     # Languages
@@ -63,6 +64,7 @@
     audacity
     blender
     darktable
+    dino
     discord
     geogebra6
     gimp
@@ -81,23 +83,24 @@
 
     # Drivers
     samba
+    usb-reset
     usbtop
     usbutils
-    usb-reset
 
     # Desktop environment
     gnome-extension-manager
     gnome-network-displays
-    gnome-themes-extra   
     gnome-randr
+    gnome-themes-extra   
+    gnome.dconf-editor
     gnome.gnome-themes-extra
     gnome.gnome-tweaks
-    gnome.dconf-editor
     gnomeExtensions.screen-rotate
+    nerdfonts
 
     # Windows
-    winetricks
     wine
+    winetricks
 
     # YubiKey
     yubikey-manager-qt

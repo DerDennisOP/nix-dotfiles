@@ -92,14 +92,13 @@
       shellAliases = {
         gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
         garbage = "sudo nix-collect-garbage -d";
-        l = "ls -l -a";
+        l = "ls -lah";
         nixdir = "echo \"use flake\" > .envrc && direnv allow";
         nixeditc = "nvim ~/dotfiles/system/configuration.nix";
         nixeditpc = "nvim ~/dotfiles/system/program.nix";
         pypi = "pip install --user";
         update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
         v = "nvim";
-        vim = "nvim";
       };
       promptInit = ''
         command_not_found_handler() {
@@ -115,11 +114,45 @@
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;
+      withPython3 = true;
       configure = {
+        customRC = ''
+	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	'';
         packages.myVimPackage = with pkgs.vimPlugins; {
-          start = [ fugitive nvim-treesitter.withAllGrammars nvim-treesitter-refactor vim-cpp-enhanced-highlight colorizer ];
+          start = [
+	    colorizer
+	    copilot-vim
+	    csv-vim
+	    fugitive
+	    fzf-vim
+	    nerdtree
+	    nvchad
+	    nvchad-ui
+	    nvim-treesitter-refactor
+	    nvim-treesitter.withAllGrammars
+	    unicode-vim
+	    vim-cpp-enhanced-highlight
+	    vim-tmux
+	    vim-tmux-navigator
+	  ];
         };
       };
+    };
+
+    tmux = {
+      enable = true;
+      keyMode = "vi";
+      terminal = "screen-256color\"\nset -g mouse on\n# \"";
+      shortcut = "Space";
+      baseIndex = 1;
+      clock24 = true;
+      plugins = with pkgs.tmuxPlugins; [
+	nord
+	vim-tmux-navigator
+        sensible
+        yank
+      ];
     };
 
     #nix-index = {
@@ -130,23 +163,23 @@
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
-        zlib
-        zstd
-        stdenv.cc.cc
-        curl
-        openssl
-        attr
-        libssh
-        bzip2
-        libxml2
-        libmysqlclient
         acl
-        libsodium
-        util-linux
-        xz
-        systemd
+        attr
+        bzip2
+        curl
         glib
         libglvnd
+        libmysqlclient
+        libsodium
+        libssh
+        libxml2
+        openssl
+        stdenv.cc.cc
+        systemd
+        util-linux
+        xz
+        zlib
+        zstd
       ];
     };
   };
@@ -159,7 +192,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "adobe-reader-9.5.5"
     "electron-12.2.3"
-    "electron-14.2.9"
+    "electron-19.1.9"
   ];
 
   nix = {
@@ -179,8 +212,12 @@
     gnome-tour
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
+    gnome-contacts
     gnome-music
+    gnome-weather
+    gnome-maps
     gnome-terminal
+    simple-scan # document scanner
     gedit # text editor
     epiphany # web browser
     geary # email reader

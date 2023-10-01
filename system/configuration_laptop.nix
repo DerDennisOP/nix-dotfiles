@@ -68,7 +68,11 @@ in {
   };
 
   programs = {
-    steam.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
     zsh.shellAliases = {
       nixedit = "nvim ~/dotfiles/system/configuration_laptop.nix";
       nixeditp = "nvim ~/dotfiles/system/program_laptop.nix";
