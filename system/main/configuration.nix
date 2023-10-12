@@ -76,9 +76,9 @@ in {
     droidcam.enable = true;
     steam.enable = true;
     zsh.shellAliases = {
-      nixedit = "nvim ~/dotfiles/system/configuration_main.nix";
-      nixeditp = "nvim ~/dotfiles/system/program_main.nix";
-      nixedith = "nvim ~/dotfiles/system/hardware-configuration_main.nix";
+      nixedit = "nvim ~/dotfiles/system/main/configuration.nix";
+      nixeditp = "nvim ~/dotfiles/system/main/program.nix";
+      nixedith = "nvim ~/dotfiles/system/main/hardware-configuration.nix";
     };
 
     #nix-ld = {
@@ -101,8 +101,6 @@ in {
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    xmr-stak.cudaSupport = true;
 
     xserver = {
       enable = true;

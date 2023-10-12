@@ -62,7 +62,6 @@ in {
   };
 
   programs = {
-    command-not-found.enable = false;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;

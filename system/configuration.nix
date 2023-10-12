@@ -50,6 +50,7 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
+    command-not-found.enable = false;
     fzf.keybindings = true;
     git = {
       enable = true;
