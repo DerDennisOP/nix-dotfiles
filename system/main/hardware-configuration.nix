@@ -51,14 +51,9 @@
 
   fileSystems."/boot/efis/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1" =
     {
-      device = "systemd-1";
-      fsType = "autofs";
+      device = "/dev/disk/by-id/nvme-Samsung_SSD_980_PRO_1TB_S5GXNF0W178262L-part1";
+      fsType = "vfat";
     };
-
-  fileSystems."/media/data" = {
-    device = "pdata/data";
-    fsType = "zfs";
-  };
 
   fileSystems."/media/archive1" = {
     device = "parchive/data";
