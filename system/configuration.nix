@@ -50,7 +50,6 @@
   nixpkgs.config.allowUnfree = true;
 
   programs = {
-    command-not-found.enable = true;
     fzf.keybindings = true;
     git = {
       enable = true;
@@ -117,6 +116,11 @@
       withPython3 = true;
       configure = {
         customRC = ''
+          set undofile         " save undo file after quit
+	  set undolevels=1000  " number of steps to save
+	  set undoreload=10000 " number of lines to save
+
+	  " Save Cursor Position
 	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 	'';
         packages.myVimPackage = with pkgs.vimPlugins; {

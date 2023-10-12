@@ -3,22 +3,34 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    c3d2-user-module.url = "git+https://gitea.c3d2.de/C3D2/nix-user-module.git";
+
+    c3d2-user-module = {
+      url = "git+https://gitea.c3d2.de/C3D2/nix-user-module.git";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, c3d2-user-module, ... }: {
+  outputs = { nixpkgs, c3d2-user-module, nix-index-database, ... }: {
     nixosConfigurations = {
       DennisLaptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./system/configuration_laptop.nix
+          ./system/laptop/configuration.nix
+	  nix-index-database.nixosModules.nix-index
           c3d2-user-module.nixosModule
         ];
       };
+
       DennisMain = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./system/configuration_main.nix
+          ./system/main/configuration.nix
+	  nix-index-database.nixosModules.nix-index
         ];
       };
     };

@@ -1,18 +1,12 @@
-# wiki/wiki/Main_Page
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { pkgs, ... }:
 let
 in {
-  imports =
-    [
-      ./hardware-configuration_laptop.nix
-      ./configuration.nix
-      ./program_laptop.nix
-      ./program.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../configuration.nix
+    ./program.nix
+    ../program.nix
+  ];
 
   boot = {
     loader = {
@@ -68,15 +62,16 @@ in {
   };
 
   programs = {
+    command-not-found.enable = false;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
     zsh.shellAliases = {
-      nixedit = "nvim ~/dotfiles/system/configuration_laptop.nix";
-      nixeditp = "nvim ~/dotfiles/system/program_laptop.nix";
-      nixedith = "nvim ~/dotfiles/system/hardware-configuration_laptop.nix";
+      nixedit = "nvim ~/dotfiles/system/laptop/configuration.nix";
+      nixeditp = "nvim ~/dotfiles/system/laptop/program.nix";
+      nixedith = "nvim ~/dotfiles/system/laptop/hardware-configuration.nix";
     };
   };
 

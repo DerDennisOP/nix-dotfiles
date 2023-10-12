@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # CLI programs
+    bat
     btop
     comma
     cowsay
@@ -51,7 +52,7 @@
     vscode
 
     # Languages
-    futhark
+    # futhark
     go
     nodePackages.npm
     nodePackages.ts-node
