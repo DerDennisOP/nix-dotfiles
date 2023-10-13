@@ -37,7 +37,7 @@ in {
     hostName = "DennisLaptop"; # Define your hostname.
     networkmanager.enable = true;
     #firewall.enable = false;
-    firewall.allowedTCPPorts = [ 8000 ];
+    #firewall.allowedTCPPorts = [ 8000 ];
   };
 
   c3d2.audioStreaming = true;
@@ -55,8 +55,8 @@ in {
       enable = true;
       driSupport = true;
       extraPackages = with pkgs; [
-        rocm-opencl-icd
-        rocm-opencl-runtime
+        rocmPackages.clr
+        rocmPackages.clr.icd
       ];
     };
   };

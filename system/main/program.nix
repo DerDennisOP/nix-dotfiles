@@ -19,10 +19,10 @@
     python310Packages.torch-bin
 
     # Libraries
-    #cudaPackages.cudnn
+    cudaPackages.cudnn
 
     # Drivers
-    #cudatoolkit
+    cudatoolkit
 
     # Desktop environment
 

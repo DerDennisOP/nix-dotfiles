@@ -16,7 +16,7 @@
 
     # Drivers
     iio-sensor-proxy
-    rocminfo
+    rocmPackages.rocminfo
 
     # Games
     mindustry-wayland

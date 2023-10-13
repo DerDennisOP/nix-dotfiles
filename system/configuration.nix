@@ -1,10 +1,17 @@
 { pkgs, lib, ... }:
-{
+let
+in {
+  imports = [
+    ./banner.nix
+  ];
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
+
+  # network
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   # security
   services = {
@@ -15,7 +22,15 @@
       yubikey-personalization
     ];
 
-    openssh.extraConfig = ''StreamLocalBindUnlink yes'';
+    openssh = {
+      enable = true;
+      extraConfig = ''StreamLocalBindUnlink yes'';
+      settings = {
+        PermitRootLogin = "no";
+	PasswordAuthentication = false;
+      };
+      authorizedKeysFiles = [ "../yubikey.pub" ];
+    };
 
     #gnome.gnome-keyring.enable = lib.mkForce false;
   };
