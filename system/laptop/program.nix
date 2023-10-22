@@ -9,6 +9,7 @@
 
     # Desktop programs
     freecad
+    kicad
     krita
     xournalpp
 

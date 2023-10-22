@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
 in {
   imports = [
@@ -30,6 +30,11 @@ in {
 	PasswordAuthentication = false;
       };
       authorizedKeysFiles = [ "../yubikey.pub" ];
+    };
+
+    kmscon = {
+      enable = true;
+      extraOptions = "--xkb-layout ${config.services.xserver.layout}";
     };
 
     #gnome.gnome-keyring.enable = lib.mkForce false;

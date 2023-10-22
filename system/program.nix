@@ -74,6 +74,7 @@
     nextcloud-client
     spotify
     thunderbird
+    todoist-electron
     vlc
     wpsoffice
 
