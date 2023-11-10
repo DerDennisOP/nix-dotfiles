@@ -105,6 +105,12 @@ in {
     '';
   };
 
+  environment.sessionVariables = rec {
+    KICAD7_SYMBOL_DIR = "/home/dennis/repos/turag/elektronik/KiCad/kicad-symbols";
+    KICAD7_FOOTPRINT_DIR = "/home/dennis/repos/turag/elektronik/KiCad/kicad-footprints";
+    KICAD7_3DMODEL_DIR = "/home/dennis/repos/turag/elektronik/KiCad/kicad-packages3D";
+  };
+
   security = {
     #  pam.services = {
     #    login.fprintAuth = true;

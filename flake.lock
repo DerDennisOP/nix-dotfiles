@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1693748268,
-        "narHash": "sha256-nXxc0ONYX1ng9LwUWpEzi1nwJg4lpr4+hRzSCzYmUIY=",
+        "lastModified": 1698539257,
+        "narHash": "sha256-7ql+k40kLpaB41cUzkw0/Ww1ujSYlvG9AEXBi8Nk6r8=",
         "ref": "refs/heads/master",
-        "rev": "c0d7c10534ef42e03e4aae9b5bcfe160e1eb275c",
-        "revCount": 38,
+        "rev": "c822e0c34fac14b6d037ada62e74af09a4bcea40",
+        "revCount": 41,
         "type": "git",
         "url": "https://gitea.c3d2.de/C3D2/nix-user-module.git"
       },
@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1697340827,
-        "narHash": "sha256-XlrR68N7jyaZ0bs8TPrhqcWG0IPG3pbjrKzJMpYOsos=",
+        "lastModified": 1699156599,
+        "narHash": "sha256-Qk9ZE/pG9lNIGUVNArJxL0Hc0Soa92eQPPIhcDwWinU=",
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "rev": "29977d0796c058bbcfb2df5b18eb5badf1711007",
+        "rev": "5388a4002179d6778d212dc2fdcc7ac3fdbd5b65",
         "type": "github"
       },
       "original": {
@@ -64,11 +64,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1697456312,
-        "narHash": "sha256-roiSnrqb5r+ehnKCauPLugoU8S36KgmWraHgRqVYndo=",
+        "lastModified": 1699099776,
+        "narHash": "sha256-X09iKJ27mGsGambGfkKzqvw5esP1L/Rf8H3u3fCqIiU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ca012a02bf8327be9e488546faecae5e05d7d749",
+        "rev": "85f1ba3e51676fa8cc604a3d863d729026a6b8eb",
         "type": "github"
       },
       "original": {

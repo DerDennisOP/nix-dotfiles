@@ -119,6 +119,7 @@ in {
         pypi = "pip install --user";
         update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
         v = "nvim";
+	qr = "qrencode -m 2 -t utf8 <<< \"$1\"";
       };
       promptInit = ''
         command_not_found_handler() {

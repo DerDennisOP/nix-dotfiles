@@ -23,6 +23,7 @@
     nixpkgs-fmt
     nmap
     pciutils
+    qrencode
     ripgrep
     tig
     tokei
