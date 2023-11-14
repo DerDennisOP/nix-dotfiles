@@ -60,7 +60,6 @@ in {
 
   hardware = {
     enableAllFirmware = true;
-    steam-hardware.enable = true;
     pulseaudio.enable = false;
     opengl.enable = true;
     opengl.driSupport = true;
@@ -74,7 +73,6 @@ in {
   programs = {
     dconf.enable = true;
     droidcam.enable = true;
-    steam.enable = true;
     zsh.shellAliases = {
       nixedit = "nvim ~/dotfiles/system/main/configuration.nix";
       nixeditp = "nvim ~/dotfiles/system/main/program.nix";

@@ -47,7 +47,7 @@
     jre8
     mariadb
     postgresql
-    postman
+    #postman
     rustup
     signal-desktop
     vscode

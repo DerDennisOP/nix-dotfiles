@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     # CLI programs
     gource
+    nvitop
 
     # Development tools
 
@@ -11,8 +12,6 @@
     # Desktop programs
     bitwarden
     firefox
-    lutris
-    protonup-qt
     teamspeak5_client
 
     # Python packages
@@ -26,7 +25,5 @@
 
     # Desktop environment
 
-    # Windows
-    virtualbox
   ];
 }
