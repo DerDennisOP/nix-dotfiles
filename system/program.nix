@@ -42,6 +42,7 @@
     cmake
     etcher
     gcc
+    gdb
     gnumake
     gpp
     jre8
