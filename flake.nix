@@ -21,7 +21,7 @@
         system = "x86_64-linux";
         modules = [
           ./system/laptop/configuration.nix
-	  nix-index-database.nixosModules.nix-index
+          nix-index-database.nixosModules.nix-index
           c3d2-user-module.nixosModule
         ];
       };
@@ -30,7 +30,7 @@
         system = "x86_64-linux";
         modules = [
           ./system/main/configuration.nix
-	  nix-index-database.nixosModules.nix-index
+          nix-index-database.nixosModules.nix-index
         ];
       };
     };

@@ -27,7 +27,7 @@ in {
       extraConfig = ''StreamLocalBindUnlink yes'';
       settings = {
         PermitRootLogin = "no";
-	PasswordAuthentication = false;
+        PasswordAuthentication = false;
       };
       authorizedKeysFiles = [ "../yubikey.pub" ];
     };
@@ -119,7 +119,7 @@ in {
         pypi = "pip install --user";
         update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
         v = "nvim";
-	qr = "qrencode -m 2 -t utf8 <<< \"$1\"";
+        qr = "qrencode -m 2 -t utf8 <<< \"$1\"";
       };
       promptInit = ''
         command_not_found_handler() {
@@ -138,30 +138,30 @@ in {
       withPython3 = true;
       configure = {
         customRC = ''
-          set undofile         " save undo file after quit
-	  set undolevels=1000  " number of steps to save
-	  set undoreload=10000 " number of lines to save
+                    set undofile         " save undo file after quit
+          	  set undolevels=1000  " number of steps to save
+          	  set undoreload=10000 " number of lines to save
 
-	  " Save Cursor Position
-	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-	'';
+          	  " Save Cursor Position
+          	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+          	'';
         packages.myVimPackage = with pkgs.vimPlugins; {
           start = [
-	    colorizer
-	    copilot-vim
-	    csv-vim
-	    fugitive
-	    fzf-vim
-	    nerdtree
-	    nvchad
-	    nvchad-ui
-	    nvim-treesitter-refactor
-	    nvim-treesitter.withAllGrammars
-	    unicode-vim
-	    vim-cpp-enhanced-highlight
-	    vim-tmux
-	    vim-tmux-navigator
-	  ];
+            colorizer
+            copilot-vim
+            csv-vim
+            fugitive
+            fzf-vim
+            nerdtree
+            nvchad
+            nvchad-ui
+            nvim-treesitter-refactor
+            nvim-treesitter.withAllGrammars
+            unicode-vim
+            vim-cpp-enhanced-highlight
+            vim-tmux
+            vim-tmux-navigator
+          ];
         };
       };
     };
@@ -174,8 +174,8 @@ in {
       baseIndex = 1;
       clock24 = true;
       plugins = with pkgs.tmuxPlugins; [
-	nord
-	vim-tmux-navigator
+        nord
+        vim-tmux-navigator
         sensible
         yank
       ];

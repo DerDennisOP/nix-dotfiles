@@ -95,7 +95,7 @@
     gnome-extension-manager
     gnome-network-displays
     gnome-randr
-    gnome-themes-extra   
+    gnome-themes-extra
     gnome.dconf-editor
     gnome.gnome-themes-extra
     gnome.gnome-tweaks
