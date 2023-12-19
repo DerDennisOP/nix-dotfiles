@@ -20,11 +20,13 @@
     neofetch
     nix-init
     nix-prefetch
+    nix-tree
     nixpkgs-fmt
     nmap
     pciutils
     qrencode
     ripgrep
+    speedtest-cli
     tig
     tokei
     tree
@@ -54,7 +56,7 @@
     vscode
 
     # Languages
-    # futhark
+    futhark
     go
     nodePackages.npm
     nodePackages.ts-node

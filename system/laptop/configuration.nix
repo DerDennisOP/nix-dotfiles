@@ -42,13 +42,7 @@ in {
 
   c3d2.audioStreaming = true;
 
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
   hardware = {
-    pulseaudio.enable = false;
     sensor.iio.enable = true;
 
     opengl = {
@@ -72,16 +66,11 @@ in {
       nixeditp = "nvim ~/dotfiles/system/laptop/program.nix";
       nixedith = "nvim ~/dotfiles/system/laptop/hardware-configuration.nix";
     };
+    hyprland.enable = true;
   };
 
   services = {
     printing.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
 
     xserver = {
       enable = true;

@@ -22,6 +22,15 @@ in {
       yubikey-personalization
     ];
 
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+      wireplumber.enable = true;
+    };
+
     openssh = {
       enable = true;
       extraConfig = ''StreamLocalBindUnlink yes'';
@@ -45,11 +54,14 @@ in {
     export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
   '';
 
-  security.pam.yubico = {
-    enable = true;
-    mode = "challenge-response";
-    control = "sufficient";
-    id = [ "22928767" ];
+  security = {
+    pam.yubico = {
+      enable = true;
+      mode = "challenge-response";
+      control = "sufficient";
+      id = [ "22928767" ];
+    };
+    rtkit.enable = true;
   };
 
   # enable Font folder
@@ -69,6 +81,15 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+  };
+
+  hardware = {
+    pulseaudio.enable = false;
+  };
+
   programs = {
     command-not-found.enable = false;
     fzf.keybindings = true;
@@ -76,6 +97,8 @@ in {
       enable = true;
       config = {
         alias = {
+	  p = "pull";
+	  r = "reset --hard";
           ci = "commit";
           co = "checkout";
           lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
@@ -110,8 +133,10 @@ in {
         theme = "agnoster";
       };
       shellAliases = {
-        gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
+	flake = "nvim flake.nix";
+	qr = "qrencode -m 2 -t utf8 <<< \"$1\"";
         garbage = "sudo nix-collect-garbage -d";
+        gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
         l = "ls -lah";
         nixdir = "echo \"use flake\" > .envrc && direnv allow";
         nixeditc = "nvim ~/dotfiles/system/configuration.nix";
