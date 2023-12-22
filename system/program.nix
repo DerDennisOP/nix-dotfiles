@@ -4,7 +4,6 @@
     # CLI programs
     bat
     btop
-    comma
     cowsay
     deadnix
     direnv
@@ -75,6 +74,7 @@
     gimp
     google-chrome
     gparted
+    helvum
     nextcloud-client
     spotify
     thunderbird

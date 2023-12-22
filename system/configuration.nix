@@ -91,6 +91,7 @@ in {
   };
 
   programs = {
+    nix-index-database.comma.enable = true;
     command-not-found.enable = false;
     fzf.keybindings = true;
     git = {
@@ -253,7 +254,7 @@ in {
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-oder-than 14d";
+      options = "--delete-older-than 14d";
     };
   };
 
