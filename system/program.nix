@@ -5,6 +5,7 @@
     bat
     btop
     cowsay
+    croc
     deadnix
     direnv
     fd
@@ -17,10 +18,6 @@
     lsof
     ncpamixer
     neofetch
-    nix-init
-    nix-prefetch
-    nix-tree
-    nixpkgs-fmt
     nmap
     pciutils
     qrencode
@@ -32,11 +29,17 @@
     unzip
     ventoy
     wget
+    zip
     zoxide
-    zsh-nix-shell
 
     # Nix Extensions
+    nil
+    nix-init
     nix-output-monitor
+    nix-prefetch
+    nix-tree
+    nixpkgs-fmt
+    zsh-nix-shell
 
     # Development tools
     cargo
@@ -109,7 +112,7 @@
     winetricks
 
     # YubiKey
-    yubikey-manager-qt
+    # yubikey-manager-qt: Not working currently
     yubikey-personalization
   ];
 }

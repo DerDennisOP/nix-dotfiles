@@ -21,7 +21,6 @@
 
     # Games
     mindustry-wayland
-    zeroadPackages.zeroad-unwrapped
 
     # Windows
     wineWowPackages.waylandFull

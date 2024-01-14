@@ -90,6 +90,8 @@ in {
     pulseaudio.enable = false;
   };
 
+  boot.plymouth.enable = true;
+
   programs = {
     nix-index-database.comma.enable = true;
     command-not-found.enable = false;
@@ -98,8 +100,8 @@ in {
       enable = true;
       config = {
         alias = {
-	  p = "pull";
-	  r = "reset --hard";
+          p = "pull";
+          r = "reset --hard";
           ci = "commit";
           co = "checkout";
           lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'";
@@ -134,7 +136,7 @@ in {
         theme = "agnoster";
       };
       shellAliases = {
-	flake = "nvim flake.nix";
+        flake = "nvim flake.nix";
         garbage = "sudo nix-collect-garbage -d";
         gpw = "git pull | grep \"Already up-to-date\" > /dev/null; while [ $? -gt 1 ]; do sleep 5; git pull | grep \"Already up-to-date\" > /dev/null; done; notify-send Pull f$";
         l = "ls -lah";
@@ -142,7 +144,7 @@ in {
         nixeditc = "nvim ~/dotfiles/system/configuration.nix";
         nixeditpc = "nvim ~/dotfiles/system/program.nix";
         pypi = "pip install --user";
-	qr = "qrencode -m 2 -t utf8 <<< \"$1\"";
+        qr = "qrencode -m 2 -t utf8 <<< \"$1\"";
         update = "sudo nixos-rebuild switch --fast --flake ~/dotfiles/ -L";
         v = "nvim";
       };
@@ -261,6 +263,7 @@ in {
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
+    gedit
   ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-contacts
@@ -269,7 +272,6 @@ in {
     gnome-maps
     gnome-terminal
     simple-scan # document scanner
-    gedit # text editor
     epiphany # web browser
     geary # email reader
     evince # document viewer

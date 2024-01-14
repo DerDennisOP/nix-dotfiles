@@ -11,7 +11,7 @@
 
     c3d2-user-module = {
       url = "git+https://gitea.c3d2.de/C3D2/nix-user-module.git";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
