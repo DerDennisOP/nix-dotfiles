@@ -76,6 +76,7 @@ in {
     description = "Dennis Wuitz";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJYHv/LMo8N6iM3zFvOKrF7ZLp3eAG/cOED0yDzrvgkd openpgp:0x74CCE9B8" ];
   };
 
   # Allow unfree packages
@@ -98,6 +99,7 @@ in {
     fzf.keybindings = true;
     git = {
       enable = true;
+      lfs.enable = true;
       config = {
         alias = {
           p = "pull";
