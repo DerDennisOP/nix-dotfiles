@@ -18,6 +18,7 @@
     lsof
     ncpamixer
     neofetch
+    ngrok
     nmap
     pciutils
     qrencode
